@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, FormEvent } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import axios from 'axios'
@@ -44,7 +44,8 @@ const Films: React.FC<IFilmsProps> = () => {
     console.log('searchValue', searchValue)
   }
 
-  const submitSearchResult = () => {
+  const submitSearchResult = (e: FormEvent) => {
+    e.preventDefault()
     console.log(searchValue)
     fetchData()
   }

@@ -1,8 +1,8 @@
-import React, { useState, ChangeEvent } from 'react'
+import React, { useState, ChangeEvent, FormEvent } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-const StyledInputContainer = styled.div`
+const StyledForm = styled.form`
   position: relative;
   display: flex;
   align-items: center;
@@ -44,7 +44,7 @@ const StyledSearchIcon = styled.button`
 
 export interface ISearchBarProps {
   onChangeCallback: (searchValue: string) => void
-  submitSearchCallback: () => void
+  submitSearchCallback: (e: FormEvent) => void
 }
 
 const SearchBar: React.FC<ISearchBarProps> = ({ onChangeCallback, submitSearchCallback }) => {
@@ -56,7 +56,7 @@ const SearchBar: React.FC<ISearchBarProps> = ({ onChangeCallback, submitSearchCa
   }
 
   return (
-    <StyledInputContainer>
+    <StyledForm onSubmit={(e: FormEvent) => submitSearchCallback(e)}>
       <StyledSearchBar
         type="search"
         placeholder="Search Movies..."
@@ -65,10 +65,10 @@ const SearchBar: React.FC<ISearchBarProps> = ({ onChangeCallback, submitSearchCa
         onChange={(e) => handleOnChange(e)}
         value={searchValue}
       />
-      <StyledSearchIcon onClick={() => submitSearchCallback()}>
+      <StyledSearchIcon type="submit">
         <i className="fa fa-search" />
       </StyledSearchIcon>
-    </StyledInputContainer>
+    </StyledForm>
   )
 }
 
