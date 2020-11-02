@@ -1,0 +1,12 @@
+{
+  "window.zoomLevel": 0,
+  "editor.tabSize": 2,
+  "editor.tabCompletion": "on",
+  "editor.formatOnSave": true,
+  "editor.fontFamily": "Fira Code, monospace",
+  "editor.fontLigatures": true,
+  "workbench.iconTheme": "material-icon-theme",
+  "material-icon-theme.activeIconPack": "react_redux",
+  "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+  "typescript.tsdk": "c:\\Users\\Samsoedien\\Desktop\\Projects\\smdn-project\\node_modules\\typescript\\lib"
+}
