@@ -13,11 +13,15 @@ export interface IFilmListProps {
 
 const FilmList: React.FC<IFilmListProps> = ({ films }) => {
   return (
-    <ul className="smdn-film-list" data-test="film-list-component">
-      {films.map((film, index) => (
-        <FilmItem key={film.id} film={film} />
-      ))}
-    </ul>
+    <div className="row">
+      <ul className="smdn-film-list" data-test="film-list-component">
+        <div className="row">
+          {films.map((film: IFilm, index) => (
+            <FilmItem key={index} film={film} />
+          ))}
+        </div>
+      </ul>
+    </div>
   )
 }
 
