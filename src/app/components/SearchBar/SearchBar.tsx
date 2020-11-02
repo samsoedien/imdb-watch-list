@@ -44,9 +44,10 @@ const StyledSearchIcon = styled.button`
 
 export interface ISearchBarProps {
   onChangeCallback: (searchValue: string) => void
+  submitSearchCallback: () => void
 }
 
-const SearchBar: React.FC<ISearchBarProps> = ({ onChangeCallback }) => {
+const SearchBar: React.FC<ISearchBarProps> = ({ onChangeCallback, submitSearchCallback }) => {
   const [searchValue, setSearchValue] = useState<string>('')
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -64,7 +65,7 @@ const SearchBar: React.FC<ISearchBarProps> = ({ onChangeCallback }) => {
         onChange={(e) => handleOnChange(e)}
         value={searchValue}
       />
-      <StyledSearchIcon>
+      <StyledSearchIcon onClick={() => submitSearchCallback()}>
         <i className="fa fa-search" />
       </StyledSearchIcon>
     </StyledInputContainer>

@@ -33,10 +33,10 @@ const StyledOverlay = styled.div`
 const StyledHeading = styled.h2`
   color: #fff;
   position: absolute;
-  top: 8%;
+  top: 15%;
   left: 50%;
   transform: translate(-50%);
-  font-size: 72px;
+  font-size: 60px;
 `
 
 export interface IHeroBannerProps {}
