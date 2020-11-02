@@ -28,23 +28,25 @@ const Films: React.FC<IFilmsProps> = () => {
   const [films, setFilms] = useState<any>()
   const [searchValue, setSearchValue] = useState<string>('avengers')
 
+  const fetchData = async () => {
+    // const result = await axios.get('http://www.omdbapi.com/?i=tt3896198&apikey=186be766')
+    const result = await axios.get(`http://www.omdbapi.com/?s=${searchValue}&apikey=186be766`)
+    setFilms(result.data.Search)
+  }
+
   useEffect(() => {
-    const fetchData = async () => {
-      // const result = await axios.get('http://www.omdbapi.com/?i=tt3896198&apikey=186be766')
-      const result = await axios.get(`http://www.omdbapi.com/?s=${searchValue}&apikey=186be766`)
-      setFilms(result.data.Search)
-    }
     fetchData()
     console.log('films', films)
   }, [])
 
-  const getSearchValue = (searchValue: string) => {
+  const getSearchValue = (searchVal: string) => {
+    setSearchValue(searchVal)
     console.log('searchValue', searchValue)
   }
 
   const submitSearchResult = () => {
-    setSearchValue(searchValue)
     console.log(searchValue)
+    fetchData()
   }
 
   console.log('films', films)
