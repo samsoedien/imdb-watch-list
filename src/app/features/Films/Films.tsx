@@ -26,7 +26,7 @@ export interface IFilmsProps {}
 
 const Films: React.FC<IFilmsProps> = () => {
   const [films, setFilms] = useState<any>()
-  const [searchValue, setSearchValue] = useState<string>('avengers')
+  const [searchValue, setSearchValue] = useState<string>('back to the future')
 
   const fetchData = async () => {
     // const result = await axios.get('http://www.omdbapi.com/?i=tt3896198&apikey=186be766')
