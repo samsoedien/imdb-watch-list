@@ -15,18 +15,23 @@ const FilmList: React.FC<IFilmListProps> = ({ films }) => {
   return (
     <div className="row">
       <ul className="smdn-film-list" data-test="film-list-component">
-        <div className="row">
-          {films.map((film: IFilm, index) => (
-            <FilmItem key={index} film={film} />
-          ))}
-        </div>
+        {films ? (
+          <div className="row">
+            {films.map((film: IFilm, index) => (
+              <FilmItem key={index} film={film} />
+            ))}
+            )
+          </div>
+        ) : (
+          <span>Loading...</span>
+        )}
       </ul>
     </div>
   )
 }
 
 FilmList.propTypes = {
-  films: PropTypes.any.isRequired,
+  films: PropTypes.any,
 }
 
 export default FilmList
